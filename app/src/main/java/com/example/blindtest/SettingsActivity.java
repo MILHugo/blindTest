@@ -46,7 +46,6 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 editor.putBoolean("ThemeChanged", true);
                 editor.apply();
-                Log.d("DEBUG", "Theme changed : "+preferences.getBoolean("DarkMode", false));
                 recreate();
             }
         });

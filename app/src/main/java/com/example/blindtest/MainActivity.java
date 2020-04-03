@@ -62,10 +62,8 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         SharedPreferences preferences = getSharedPreferences("com.example.blindtest", 0);
-        Log.d("DEBUG", "Theme changed : "+preferences.getBoolean("ThemeChanged", false));
         if (preferences.getBoolean("ThemeChanged", false)){
             SharedPreferences.Editor editor = preferences.edit();
-            Log.d("DEBUG", "Recreate main");
             editor.putBoolean("ThemeChanged", false);
             editor.apply();
             this.recreate();
