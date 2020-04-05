@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Blind Test</string>
+    <string name="in_development">Service in development</string>
 </resources>

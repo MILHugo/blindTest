@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnSingleplayer;
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO : implementer le mode multijoueur
+                Snackbar.make(v, getString(R.string.in_development), Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
 
