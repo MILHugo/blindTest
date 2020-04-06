@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/id_TitleAppS2"
+        android:id="@+id/TXT_titleTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -60,7 +60,7 @@
         tools:text="BLIND TEST" />
 
     <Button
-        android:id="@+id/id_begin"
+        android:id="@+id/BTN_commencer"
         android:layout_width="128dp"
         android:layout_height="74dp"
         android:layout_marginBottom="100dp"
@@ -71,12 +71,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/id_titleTheme"
+        android:id="@+id/TXT_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Thème"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_TitleAppS2" />
+        app:layout_constraintTop_toBottomOf="@+id/TXT_titleTheme" />
 </androidx.constraintlayout.widget.ConstraintLayout>

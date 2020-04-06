@@ -2,31 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/BTN_valider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Valider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <RadioButton
-        android:id="@+id/id_rep1S"
+        android:id="@+id/RAD_rep1"
         android:layout_width="129dp"
         android:layout_height="48dp"
         android:layout_marginStart="60dp"
         android:layout_marginBottom="70dp"
         android:text="Réponse 1"
-        app:layout_constraintBottom_toTopOf="@+id/id_rep3S"
+        app:layout_constraintBottom_toTopOf="@+id/RAD_rep3"
         app:layout_constraintStart_toStartOf="parent" />
 
     <RadioButton
-        android:id="@+id/id_rep4S"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
+        android:id="@+id/RAD_rep4"
+        android:layout_width="124dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="105dp"
+        android:layout_marginBottom="110dp"
         android:text="Réponse 4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/IMG_imageSing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
@@ -36,7 +48,7 @@
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
-        android:id="@+id/id_TimeResS"
+        android:id="@+id/TXT_tempsResSing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -45,20 +57,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_imageM" />
+        app:layout_constraintTop_toBottomOf="@+id/IMG_imageMulti" />
 
     <RadioButton
-        android:id="@+id/id_rep2S"
+        android:id="@+id/RAD_rep2"
         android:layout_width="129dp"
         android:layout_height="48dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="70dp"
         android:text="Réponse 2"
-        app:layout_constraintBottom_toTopOf="@+id/id_rep4S"
+        app:layout_constraintBottom_toTopOf="@+id/RAD_rep4"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/id_TitleAppS"
+        android:id="@+id/TXT_titleSing"
         tools:text="BLIND TEST"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,11 +84,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <RadioButton
-        android:id="@+id/id_rep3S"
+        android:id="@+id/RAD_rep3"
         android:layout_width="129dp"
         android:layout_height="48dp"
         android:layout_marginStart="60dp"
-        android:layout_marginBottom="105dp"
+        android:layout_marginBottom="110dp"
         android:text="Réponse 3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
