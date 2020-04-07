@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/BTN_singleplayer"
-        android:layout_width="165dp"
-        android:layout_height="84dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
         android:text="Singleplayer"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,8 +45,8 @@
 
     <Button
         android:id="@+id/BTN_multiplayer"
-        android:layout_width="169dp"
-        android:layout_height="87dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Multiplayer"
         app:layout_constraintEnd_toEndOf="parent"
