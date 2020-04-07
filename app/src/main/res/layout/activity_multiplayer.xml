@@ -6,117 +6,164 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RadioButton
-        android:id="@+id/id_rep4M"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="105dp"
-        android:text="Réponse 4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <RadioButton
-        android:id="@+id/id_rep2M"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="70dp"
-        android:text="Réponse 2"
-        app:layout_constraintBottom_toTopOf="@+id/id_rep4M"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <RadioButton
-        android:id="@+id/id_rep1M"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="70dp"
-        android:text="Réponse 1"
-        app:layout_constraintBottom_toTopOf="@+id/id_rep3M"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
-        android:id="@+id/id_TitleAppM"
-        tools:text="BLIND TEST"
+        android:id="@+id/txt_titre"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
         android:text="BLIND TEST"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:text="BLIND TEST" />
 
     <ImageView
         android:id="@+id/id_imageM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/idTempsResM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_titre"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <TextView
         android:id="@+id/idTempsResM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="380dp"
+        android:layout_marginBottom="16dp"
         android:text="Temps Restant :"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_imageM" />
-
-    <TextView
-        android:id="@+id/id_MyScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:text="Votre Score :"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="363dp" />
-
-    <TextView
-        android:id="@+id/id_AdvScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="75dp"
-        android:text="Score Adverse :"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="363dp" />
-
-    <TextView
-        android:id="@+id/id_mS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="10dp"
-        android:text="2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_MyScore" />
-
-    <TextView
-        android:id="@+id/id_AS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="100dp"
-        android:text="5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_AdvScore" />
-
-    <RadioButton
-        android:id="@+id/id_rep3M"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="105dp"
-        android:text="Réponse 3"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:minWidth="120dp"
+                android:minHeight="50dp"
+                android:text="Reponse 1" />
+
+            <RadioButton
+                android:id="@+id/rb_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:minWidth="120dp"
+                android:minHeight="50dp"
+                android:text="Reponse 2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:minWidth="120dp"
+                android:minHeight="50dp"
+                android:text="Reponse 3" />
+
+            <RadioButton
+                android:id="@+id/rb_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:minWidth="120dp"
+                android:minHeight="50dp"
+                android:text="Reponse 4" />
+        </LinearLayout>
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/id_mS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="2" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/id_AS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/id_MyScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Votre Score :" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/id_AdvScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="Score Adverse :" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
