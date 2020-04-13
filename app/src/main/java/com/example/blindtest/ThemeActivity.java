@@ -27,7 +27,7 @@ public class ThemeActivity extends AppCompatActivity {
     }
 
     private void init(){
-        btnBegin = findViewById(R.id.id_begin);
+        btnBegin = findViewById(R.id.BTN_commencer);
         btnBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

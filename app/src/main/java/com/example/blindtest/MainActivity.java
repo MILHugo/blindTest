@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
-        btnSingleplayer = findViewById(R.id.id_singleplayer);
+        btnSingleplayer = findViewById(R.id.BTN_singleplayer);
         btnSingleplayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnMultiplayer = findViewById(R.id.id_multiplayer);
+        btnMultiplayer = findViewById(R.id.BTN_multiplayer);
         btnMultiplayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnSettings = findViewById(R.id.id_setting);
+        btnSettings = findViewById(R.id.BTN_setting);
         btnSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -32,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
     private void init(){
         final SharedPreferences preferences = getSharedPreferences("com.example.blindtest", 0);
 
-        switchTheme = findViewById(R.id.id_Sombre);
+        switchTheme = findViewById(R.id.SWT_sombre);
         switchTheme.setChecked(preferences.getBoolean("DarkMode", false));
         switchTheme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
