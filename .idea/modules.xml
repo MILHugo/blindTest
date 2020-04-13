@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Blind Test.iml" filepath="$PROJECT_DIR$/Blind Test.iml" group="Blind Test" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Blind Test/app" />
+      <module fileurl="file://$PROJECT_DIR$/appliv2-Blind Test.iml" filepath="$PROJECT_DIR$/appliv2-Blind Test.iml" group="Blind Test" />
+      <module fileurl="file://$PROJECT_DIR$/app/appliv2-app.iml" filepath="$PROJECT_DIR$/app/appliv2-app.iml" group="Blind Test/app" />
+      <module fileurl="file://$PROJECT_DIR$/blindTest-Blind Test.iml" filepath="$PROJECT_DIR$/blindTest-Blind Test.iml" group="Blind Test" />
+      <module fileurl="file://$PROJECT_DIR$/app/blindTest-app.iml" filepath="$PROJECT_DIR$/app/blindTest-app.iml" group="Blind Test/app" />
     </modules>
   </component>
 </project>

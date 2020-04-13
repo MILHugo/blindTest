@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Blind Test</string>
+    <string name="in_development">Service en développement</string>
+    <string name="themes">Thèmes</string>
+    <string name="all_themes">Tous les thèmes</string>
+    <string name="anime_series">Animés</string>
+    <string name="movies_series">Films / Séries</string>
+    <string name="song">Chansons</string>
+    <string name="commencer">Commencer</string>
+    <string name="blind_test">BLIND TEST</string>
+    <string name="settings">Paramètres</string>
+    <string name="singleplayer">Solo</string>
+    <string name="multiplayer">Multijoueur</string>
+    <string name="statistics">Statistiques</string>
+    <string name="dark_mode">Mode Sombre</string>
+</resources>
