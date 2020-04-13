@@ -5,48 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RadioButton
-        android:id="@+id/id_theme1"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="100dp"
-        android:text="Thème 1"
-        app:layout_constraintBottom_toTopOf="@+id/id_theme3"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioButton
-        android:id="@+id/id_themeAll"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="250dp"
-        android:text="Tout les thèmes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <RadioButton
-        android:id="@+id/id_theme2"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="100dp"
-        android:text="Thème 2"
-        app:layout_constraintBottom_toTopOf="@+id/id_themeAll"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <RadioButton
-        android:id="@+id/id_theme3"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="250dp"
-        android:text="Thème 3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
-        android:id="@+id/id_TitleAppS2"
+        android:id="@+id/TXT_titleTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -60,23 +20,63 @@
         tools:text="BLIND TEST" />
 
     <Button
-        android:id="@+id/id_begin"
+        android:id="@+id/BTN_commencer"
         android:layout_width="128dp"
         android:layout_height="74dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="80dp"
         android:text="Commencer"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CHK_Theme3" />
 
     <TextView
-        android:id="@+id/id_titleTheme"
+        android:id="@+id/TXT_theme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Thème"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_TitleAppS2" />
+        app:layout_constraintTop_toBottomOf="@+id/TXT_titleTheme" />
+
+    <CheckBox
+        android:id="@+id/CHK_Theme1"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="80dp"
+        android:text="Thème 1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_theme" />
+
+    <CheckBox
+        android:id="@+id/CHK_Theme3"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="100dp"
+        android:text="Thème 3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CHK_Theme1" />
+
+    <CheckBox
+        android:id="@+id/CHK_Theme2"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="60dp"
+        android:text="Thème 2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TXT_theme" />
+
+    <CheckBox
+        android:id="@+id/CHK_ThemeAll"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="60dp"
+        android:text="Tout les thèmes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CHK_Theme2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

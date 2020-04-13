@@ -7,17 +7,20 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/id_singleplayer"
-        android:layout_width="169dp"
-        android:layout_height="87dp"
+        android:id="@+id/BTN_singleplayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="240dp"
         android:text="Singleplayer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/id_TitleApp"
+        android:id="@+id/txt_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -31,23 +34,24 @@
         tools:text="BLIND TEST" />
 
     <Button
-        android:id="@+id/id_setting"
+        android:id="@+id/BTN_setting"
         android:layout_width="169dp"
         android:layout_height="87dp"
         android:layout_marginTop="60dp"
         android:text="Settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_multiplayer" />
+        app:layout_constraintTop_toBottomOf="@+id/BTN_multiplayer" />
 
     <Button
-        android:id="@+id/id_multiplayer"
-        android:layout_width="169dp"
-        android:layout_height="87dp"
+        android:id="@+id/BTN_multiplayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Multiplayer"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_singleplayer" />
+        app:layout_constraintTop_toBottomOf="@+id/BTN_singleplayer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

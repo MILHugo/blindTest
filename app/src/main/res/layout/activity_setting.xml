@@ -10,14 +10,12 @@
         android:id="@+id/id_Param"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="530dp"
+        android:layout_marginTop="40dp"
         android:text="Paramètres"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_TitleAppS2" />
+        app:layout_constraintTop_toBottomOf="@+id/id_TitleAppS3" />
 
     <TextView
         android:id="@+id/id_TitleAppS3"
@@ -34,17 +32,17 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Switch
-        android:id="@+id/id_Sombre"
+        android:id="@+id/SWT_sombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="150dp"
         android:text="Mode sombre"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/id_Param" />
 
     <TextView
-        android:id="@+id/id_stat"
+        android:id="@+id/ID_STAT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
@@ -52,7 +50,7 @@
         android:text="Statistiques"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_Sombre" />
+        app:layout_constraintTop_toBottomOf="@+id/SWT_sombre" />
 
     <View
         android:id="@+id/divider"
@@ -62,12 +60,4 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="410dp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="217dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="300dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
