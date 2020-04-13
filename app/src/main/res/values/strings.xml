@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Blind Test</string>
     <string name="in_development">Service in development</string>
+    <string name="themes">Themes</string>
+    <string name="all_themes">All themes</string>
+    <string name="anime_series">Anime series</string>
+    <string name="movies_series">Movies / Series</string>
+    <string name="song">Song</string>
+    <string name="commencer">Start</string>
+    <string name="blind_test">BLIND TEST</string>
+    <string name="singleplayer">Singleplayer</string>
+    <string name="multiplayer">Multiplayer</string>
+    <string name="statistics">Statistics</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="settings">Settings</string>
 </resources>
