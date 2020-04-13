@@ -1,17 +1,19 @@
 package com.example.blindtest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static Database DB;
 
     Button btnSingleplayer;
     Button btnMultiplayer;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DB = new Database(getApplicationContext());
 
         init();
     }
