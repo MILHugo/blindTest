@@ -16,4 +16,31 @@ public class Music {
         this.path_extrait = _path_extrait;
         this.category = _category;
     }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPath_extrait() {
+        return path_extrait;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    @Override
+    public String toString() {
+        return "Music{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", path_extrait='" + path_extrait + '\'' +
+                ", category='" + category + '\'' +
+                '}';
+    }
 }

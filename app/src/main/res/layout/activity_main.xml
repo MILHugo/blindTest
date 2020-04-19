@@ -50,4 +50,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BTN_singleplayer" />
 
+    <Button
+        android:id="@+id/BTN_fill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fill"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="25dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

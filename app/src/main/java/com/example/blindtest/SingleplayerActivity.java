@@ -3,11 +3,15 @@ package com.example.blindtest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SingleplayerActivity extends AppCompatActivity {
 
@@ -54,5 +58,40 @@ public class SingleplayerActivity extends AppCompatActivity {
                 }
             });
         }
+
+        ArrayList<Music> musics= MainActivity.DB.getRand(4);
+
+        ArrayList<Integer> indexalreadychoosen = new ArrayList();
+        int i = 0;
+
+        while (i < 4) {
+            Random r = new Random();
+            int k = r.nextInt(musics.size());
+            if( !indexalreadychoosen.contains(k) ){
+                radioGroup.get(i).setText(musics.get(k).getName());
+                indexalreadychoosen.add(k);
+                i++;
+            }
+        }
+
+        int musicid = getResources().getIdentifier(musics.get(0).getPath_extrait(),"raw", getPackageName());
+
+        final MediaPlayer mp = MediaPlayer.create(this, musicid);
+        TimerTask task = new TimerTask() {
+            public void run() {
+                mp.start();
+            }
+        };
+        Timer timer = new Timer("Timer");
+        long delay = 1000L;
+        timer.schedule(task, delay);
+
+        for (Music m: musics) {
+            System.out.println("BDD: " + m);
+        }
+
+
+
+
     }
 }

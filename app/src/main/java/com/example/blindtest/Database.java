@@ -1,15 +1,13 @@
 package com.example.blindtest;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteCursorDriver;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQuery;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import static android.content.Context.MODE_PRIVATE;
 import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 public class Database {
@@ -17,47 +15,113 @@ public class Database {
 
     private ArrayList<Music> musics = null;
 
+
+
+
     public Database(Context context){
+        System.out.println("Lien de la BDD : "+context.getFilesDir().getPath());
         sqlDB = openOrCreateDatabase(context.getFilesDir().getPath() + "blindtest", null);
+        //sqlDB.execSQL("DROP TABLE MUSIC");
 
         sqlDB.execSQL("CREATE TABLE IF NOT EXISTS MUSIC (" +
-                "id INT PRIMARY KEY," +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "name VARCHAR," +
                 "path_extrait VARCHAR," +
                 "category VARCHAR" +
                 ")"
         );
+        //sqlDB.close();
+    }
+
+    public void fillDB(){
+        ContentValues values = new ContentValues();
+        values.put("name", "Billie Jean");
+        values.put("path_extrait", "billiejean");
+        values.put("category", "Music");
+        sqlDB.insert("MUSIC", null, values);
+
+        values = new ContentValues();
+        values.put("name", "Hey ya!");
+        values.put("path_extrait", "heyya");
+        values.put("category", "Music");
+        sqlDB.insert("MUSIC", null, values);
+
+        values = new ContentValues();
+        values.put("name", "Stayin'alive");
+        values.put("path_extrait", "stayinalive");
+        values.put("category", "Music");
+        sqlDB.insert("MUSIC", null, values);
+
+        values = new ContentValues();
+        values.put("name", "Wake me up");
+        values.put("path_extrait", "wakemeup");
+        values.put("category", "Music");
+        sqlDB.insert("MUSIC", null, values);
+
+//        String insert = "INSERT INTO MUSIC(id, name, path_extrait, category) " +
+//                "VALUES (null, 'primary', 'music/extrait/primary.mp3', 'Films');";
+//        this.sqlDB.execSQL(insert);
+
     }
 
 
     public ArrayList<Music> getAllMusic(){
-        if (musics != null) {
-            Cursor c;
+        if (musics == null) {
+            Cursor cursor;
             int id_temp;
             String name_temp, path_extrait_temp, category_temp;
             ArrayList<Music> musics_temp = new ArrayList<>();
 
-            c = sqlDB.rawQuery("SELECT * FROM MUSIC;", null);
-            c.moveToFirst();
-
-            for (int i = 0; c.moveToPosition(i); i++) {
-                id_temp = c.getInt(0);
-                name_temp = c.getString(1);
-                path_extrait_temp = c.getString(2);
-                category_temp = c.getString(3);
-                musics_temp.add(new Music(id_temp, name_temp, path_extrait_temp, category_temp));
+            cursor = sqlDB.rawQuery("SELECT * FROM MUSIC;", null);
+            if (cursor.moveToFirst()) {
+                while (!cursor.isAfterLast()) {
+                    id_temp = cursor.getInt(0);
+                    name_temp = cursor.getString(1);
+                    path_extrait_temp = cursor.getString(2);
+                    category_temp = cursor.getString(3);
+//                    System.out.println("BDD : id_temp : " + id_temp);
+//                    System.out.println("BDD : name_temp : " + name_temp);
+//                    System.out.println("BDD : path_extrait_temp : " + path_extrait_temp);
+//                    System.out.println("BDD : category_temp : " + category_temp);
+                    musics_temp.add(new Music(id_temp, name_temp, path_extrait_temp, category_temp));
+                    cursor.moveToNext();
+                }
             }
-            c.close();
+
             this.musics = musics_temp;
             return musics_temp;
         }
         return this.musics;
     }
 
+    public ArrayList<Music> getRand(int n){
+        ArrayList<Music> ar = new ArrayList();
+        ar.add(getOneMusicRand());
 
-    public Music getOneMusicRand(){
+        ArrayList<Integer> indexalreadychoosen = new ArrayList();
+        indexalreadychoosen.add( ar.get(0).getId() );
+
+        for(int i =0 ; i<n-1; i ++){
+            Music m = getOtherRand(indexalreadychoosen);
+            ar.add(m);
+            indexalreadychoosen.add(m.getId());
+        }
+        return ar;
+    }
+
+
+    private Music getOneMusicRand(){
         Random r = new Random();
         int i = r.nextInt(getAllMusic().size());
         return musics.get(i);
     }
+
+    private Music getOtherRand(ArrayList<Integer> idsToDodge){
+        Music m;
+        while (true) {
+            m = getOneMusicRand();
+            if ( !idsToDodge.contains(m.getId()) )  return m;
+        }
+    }
+
 }
