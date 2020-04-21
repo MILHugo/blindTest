@@ -16,11 +16,11 @@ public class Database {
     private ArrayList<Music> musics = null;
 
 
-
-
     public Database(Context context){
         System.out.println("Lien de la BDD : "+context.getFilesDir().getPath());
         sqlDB = openOrCreateDatabase(context.getFilesDir().getPath() + "blindtest", null);
+
+        //\/\/\/ A docommenter si vous voulez remettre la bdd a neuf \/\/\/
         //sqlDB.execSQL("DROP TABLE MUSIC");
 
         sqlDB.execSQL("CREATE TABLE IF NOT EXISTS MUSIC (" +
@@ -33,6 +33,8 @@ public class Database {
         //sqlDB.close();
     }
 
+
+    //Ajoute les tuples dans la bdd, correspondant aux chansons (action assigné au bouton fill  du home screen)
     public void fillDB(){
         ContentValues values = new ContentValues();
         values.put("name", "Billie Jean");
@@ -65,6 +67,7 @@ public class Database {
     }
 
 
+    //recupere les musiques de la BDD et les mets dans musics (variable de classes)
     public ArrayList<Music> getAllMusic(){
         if (musics == null) {
             Cursor cursor;
@@ -94,6 +97,7 @@ public class Database {
         return this.musics;
     }
 
+    //Recupere n chansons et les mets dans une liste(ar). le premier element de cette liste est la reponse attendue et donc la musique jouée
     public ArrayList<Music> getRand(int n){
         ArrayList<Music> ar = new ArrayList();
         ar.add(getOneMusicRand());
@@ -109,13 +113,14 @@ public class Database {
         return ar;
     }
 
-
+    //Recupere une musique aleatoirement et la renvoie. Elle sera considérée comme la reponse juste
     private Music getOneMusicRand(){
         Random r = new Random();
         int i = r.nextInt(getAllMusic().size());
         return musics.get(i);
     }
 
+    //Recupere des musique aleatoirement et les renvoie sous forme de listes. Elle constitueront les réponses fausses
     private Music getOtherRand(ArrayList<Integer> idsToDodge){
         Music m;
         while (true) {

@@ -59,11 +59,14 @@ public class SingleplayerActivity extends AppCompatActivity {
             });
         }
 
+        //recupere 4 chansons de la bdd et les mets dans une liste
         ArrayList<Music> musics= MainActivity.DB.getRand(4);
 
+        //Liste qui contiendra les index des chansons deja ajoutés aux propositions
         ArrayList<Integer> indexalreadychoosen = new ArrayList();
         int i = 0;
 
+        //on veut 4 propositions
         while (i < 4) {
             Random r = new Random();
             int k = r.nextInt(musics.size());
@@ -74,8 +77,10 @@ public class SingleplayerActivity extends AppCompatActivity {
             }
         }
 
+        //recupere l'id du .mp3 a partir de son nom
         int musicid = getResources().getIdentifier(musics.get(0).getPath_extrait(),"raw", getPackageName());
 
+        //prepare la music et attend une sec avant de la jouer
         final MediaPlayer mp = MediaPlayer.create(this, musicid);
         TimerTask task = new TimerTask() {
             public void run() {
@@ -86,6 +91,7 @@ public class SingleplayerActivity extends AppCompatActivity {
         long delay = 1000L;
         timer.schedule(task, delay);
 
+        //affiche les musics choisis en propositions
         for (Music m: musics) {
             System.out.println("BDD: " + m);
         }
