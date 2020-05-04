@@ -21,7 +21,7 @@ public class ThemeActivity extends AppCompatActivity {
     CheckBox chkAnime;
     CheckBox chkAll;
 
-    ArrayList<Category> listCategories;
+    static ArrayList<Category> listCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

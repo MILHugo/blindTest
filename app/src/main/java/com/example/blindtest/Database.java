@@ -15,6 +15,9 @@ public class Database {
     private SQLiteDatabase sqlDB;
 
     private ArrayList<Music> musics = null;
+    private ArrayList<Music> songs = null;
+    private ArrayList<Music> animes = null;
+    private ArrayList<Music> movies = null;
 
 
     public Database(Context context){
@@ -97,11 +100,23 @@ public class Database {
                             Log.e("DATABASE", "Une erreur s'est produite lors de la gestion des categories");
                             System.exit(-1);
                     }
+                    Music music = new Music(id_temp, name_temp, path_extrait_temp, category_temp);
+                    switch (music.getCategory()){
+                        case SONG:
+                            songs.add(music);
+                            break;
+                        case FILM:
+                            movies.add(music);
+                            break;
+                        case ANIME:
+                            animes.add(music);
+                            break;
+                    }
 //                    System.out.println("BDD : id_temp : " + id_temp);
 //                    System.out.println("BDD : name_temp : " + name_temp);
 //                    System.out.println("BDD : path_extrait_temp : " + path_extrait_temp);
 //                    System.out.println("BDD : category_temp : " + category_temp);
-                    musics_temp.add(new Music(id_temp, name_temp, path_extrait_temp, category_temp));
+                    musics_temp.add(music);
                     cursor.moveToNext();
                 }
             }
@@ -140,6 +155,52 @@ public class Database {
         Music m;
         while (true) {
             m = getOneMusicRand();
+            if ( !idsToDodge.contains(m.getId()) )  return m;
+        }
+    }
+
+    //Recupere n chansons et les mets dans une liste(ar). le premier element de cette liste est la reponse attendue et donc la musique jouée
+    public ArrayList<Music> getByCategory(int n, ArrayList<Category> categories){
+        ArrayList<Music> ar = new ArrayList();
+        ar.add(getOneMusicRandByCategory(categories));
+
+        ArrayList<Integer> indexalreadychoosen = new ArrayList();
+        indexalreadychoosen.add( ar.get(0).getId() );
+
+        for(int i =0 ; i<n-1; i ++){
+            Music m = getOtherRandByCategory(indexalreadychoosen, categories);
+            ar.add(m);
+            indexalreadychoosen.add(m.getId());
+        }
+        return ar;
+    }
+
+    //Recupere une musique aleatoirement correspondant a la categorie et la renvoie. Elle sera considérée comme la reponse juste
+    private Music getOneMusicRandByCategory(ArrayList<Category> categories){
+        Random r = new Random();
+        ArrayList<Music> total = new ArrayList<>();
+        for (int j = 0; j < categories.size() ; j++){
+            switch (categories.get(j)){
+                case SONG:
+                    total.addAll(songs);
+                    break;
+                case FILM:
+                    total.addAll(movies);
+                    break;
+                case ANIME:
+                    total.addAll(animes);
+                    break;
+            }
+        }
+        int i = r.nextInt(total.size());
+        return total.get(i);
+    }
+
+    //Recupere des musique aleatoirement des categories passees en parametre et les renvoie sous forme de listes. Elle constitueront les réponses fausses
+    private Music getOtherRandByCategory(ArrayList<Integer> idsToDodge, ArrayList<Category> categories){
+        Music m;
+        while (true) {
+            m = getOneMusicRandByCategory(categories);
             if ( !idsToDodge.contains(m.getId()) )  return m;
         }
     }

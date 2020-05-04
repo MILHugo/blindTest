@@ -60,7 +60,12 @@ public class SingleplayerActivity extends AppCompatActivity {
         }
 
         //recupere 4 chansons de la bdd et les mets dans une liste
-        ArrayList<Music> musics= MainActivity.DB.getRand(4);
+        ArrayList<Music> musics;
+        if (ThemeActivity.listCategories.isEmpty()) {
+            musics = MainActivity.DB.getRand(4);
+        } else {
+            musics = MainActivity.DB.getByCategory(4, ThemeActivity.listCategories);
+        }
 
         //Liste qui contiendra les index des chansons deja ajoutés aux propositions
         ArrayList<Integer> indexalreadychoosen = new ArrayList();
