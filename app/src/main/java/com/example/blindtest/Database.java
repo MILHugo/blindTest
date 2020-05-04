@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -72,7 +73,8 @@ public class Database {
         if (musics == null) {
             Cursor cursor;
             int id_temp;
-            String name_temp, path_extrait_temp, category_temp;
+            String name_temp, path_extrait_temp;
+            Category category_temp = null;
             ArrayList<Music> musics_temp = new ArrayList<>();
 
             cursor = sqlDB.rawQuery("SELECT * FROM MUSIC;", null);
@@ -81,7 +83,20 @@ public class Database {
                     id_temp = cursor.getInt(0);
                     name_temp = cursor.getString(1);
                     path_extrait_temp = cursor.getString(2);
-                    category_temp = cursor.getString(3);
+                    switch (cursor.getString(3)){
+                        case "Music":
+                            category_temp = Category.SONG;
+                            break;
+                        case "Film":
+                            category_temp = Category.FILM;
+                            break;
+                        case "Anime":
+                            category_temp = Category.ANIME;
+                            break;
+                        default:
+                            Log.e("DATABASE", "Une erreur s'est produite lors de la gestion des categories");
+                            System.exit(-1);
+                    }
 //                    System.out.println("BDD : id_temp : " + id_temp);
 //                    System.out.println("BDD : name_temp : " + name_temp);
 //                    System.out.println("BDD : path_extrait_temp : " + path_extrait_temp);
