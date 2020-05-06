@@ -7,10 +7,10 @@ public class Music {
     private int id;
     private String name;
     private String path_extrait;
-    private String category;
+    private Category category;
 
 
-    public Music(int _id, String _name, String _path_extrait, String _category){
+    public Music(int _id, String _name, String _path_extrait, Category _category){
         this.id = _id;
         this.name = _name;
         this.path_extrait = _path_extrait;
@@ -30,7 +30,7 @@ public class Music {
         return path_extrait;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,6 +15,9 @@ public class Database {
     private SQLiteDatabase sqlDB;
 
     private ArrayList<Music> musics = null;
+    private ArrayList<Music> songs = new ArrayList<>();
+    private ArrayList<Music> animes = new ArrayList<>();
+    private ArrayList<Music> movies = new ArrayList<>();
 
 
     public Database(Context context){
@@ -60,6 +64,104 @@ public class Database {
         values.put("category", "Music");
         sqlDB.insert("MUSIC", null, values);
 
+        values = new ContentValues();
+        values.put("name","TNT");
+        values.put("path_extrait","tnt");
+        values.put("category","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","emotif");
+        values.put("path_extrait","emotif");
+        values.put("category","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Wonderwall");
+        values.put("path_extrait","wonderwall");
+        values.put("category","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","don't stop me now");
+        values.put("path_extrait","dontstopmenow");
+        values.put("category","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+
+        values = new ContentValues();
+        values.put("name","Bleach opening 1");
+        values.put("path_extrait","bleachopening");
+        values.put("category","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","cha la head cha la");
+        values.put("path_extrait","dbzopening");
+        values.put("category","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Again");
+        values.put("path_extrait","fmabopening");
+        values.put("category","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","jojo's opening 1");
+        values.put("path_extrait","jojosopening");
+        values.put("category","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","My hero academia opening 1");
+        values.put("path_extrait","mhaopening");
+        values.put("category","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","naruto opening 1");
+        values.put("path_extrait","narutoopening");
+        values.put("category","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","we go");
+        values.put("path_extrait","onepieceopening");
+        values.put("category","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+
+        values = new ContentValues();
+        values.put("name","Retour vers le futur");
+        values.put("path_extrait","retourverslefuturtheme");
+        values.put("category","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Spider-man");
+        values.put("path_extrait","spidermantheme");
+        values.put("category","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Star-wars");
+        values.put("path_extrait","starwarstheme");
+        values.put("category","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Seigneur des anneaux");
+        values.put("path_extrait","seigneurdesanneauxtheme");
+        values.put("category","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Harry Potter");
+        values.put("path_extrait","hptheme");
+        values.put("category","Film");
+        sqlDB.insert("MUSIC",null,values);
+
 //        String insert = "INSERT INTO MUSIC(id, name, path_extrait, category) " +
 //                "VALUES (null, 'primary', 'music/extrait/primary.mp3', 'Films');";
 //        this.sqlDB.execSQL(insert);
@@ -72,7 +174,8 @@ public class Database {
         if (musics == null) {
             Cursor cursor;
             int id_temp;
-            String name_temp, path_extrait_temp, category_temp;
+            String name_temp, path_extrait_temp;
+            Category category_temp = null;
             ArrayList<Music> musics_temp = new ArrayList<>();
 
             cursor = sqlDB.rawQuery("SELECT * FROM MUSIC;", null);
@@ -81,12 +184,37 @@ public class Database {
                     id_temp = cursor.getInt(0);
                     name_temp = cursor.getString(1);
                     path_extrait_temp = cursor.getString(2);
-                    category_temp = cursor.getString(3);
+                    switch (cursor.getString(3)){
+                        case "Music":
+                            category_temp = Category.SONG;
+                            break;
+                        case "Film":
+                            category_temp = Category.FILM;
+                            break;
+                        case "Anime":
+                            category_temp = Category.ANIME;
+                            break;
+                        default:
+                            Log.e("DATABASE", "Une erreur s'est produite lors de la gestion des categories");
+                            System.exit(-1);
+                    }
+                    Music music = new Music(id_temp, name_temp, path_extrait_temp, category_temp);
+                    switch (music.getCategory()){
+                        case SONG:
+                            songs.add(music);
+                            break;
+                        case FILM:
+                            movies.add(music);
+                            break;
+                        case ANIME:
+                            animes.add(music);
+                            break;
+                    }
 //                    System.out.println("BDD : id_temp : " + id_temp);
 //                    System.out.println("BDD : name_temp : " + name_temp);
 //                    System.out.println("BDD : path_extrait_temp : " + path_extrait_temp);
 //                    System.out.println("BDD : category_temp : " + category_temp);
-                    musics_temp.add(new Music(id_temp, name_temp, path_extrait_temp, category_temp));
+                    musics_temp.add(music);
                     cursor.moveToNext();
                 }
             }
@@ -125,6 +253,52 @@ public class Database {
         Music m;
         while (true) {
             m = getOneMusicRand();
+            if ( !idsToDodge.contains(m.getId()) )  return m;
+        }
+    }
+
+    //Recupere n chansons et les mets dans une liste(ar). le premier element de cette liste est la reponse attendue et donc la musique jouée
+    public ArrayList<Music> getByCategory(int n, ArrayList<Category> categories){
+        ArrayList<Music> ar = new ArrayList();
+        ar.add(getOneMusicRandByCategory(categories));
+
+        ArrayList<Integer> indexalreadychoosen = new ArrayList();
+        indexalreadychoosen.add( ar.get(0).getId() );
+
+        for(int i =0 ; i<n-1; i ++){
+            Music m = getOtherRandByCategory(indexalreadychoosen, categories);
+            ar.add(m);
+            indexalreadychoosen.add(m.getId());
+        }
+        return ar;
+    }
+
+    //Recupere une musique aleatoirement correspondant a la categorie et la renvoie. Elle sera considérée comme la reponse juste
+    private Music getOneMusicRandByCategory(ArrayList<Category> categories){
+        Random r = new Random();
+        ArrayList<Music> total = new ArrayList<>();
+        for (int j = 0; j < categories.size() ; j++){
+            switch (categories.get(j)){
+                case SONG:
+                    total.addAll(songs);
+                    break;
+                case FILM:
+                    total.addAll(movies);
+                    break;
+                case ANIME:
+                    total.addAll(animes);
+                    break;
+            }
+        }
+        int i = r.nextInt(total.size());
+        return total.get(i);
+    }
+
+    //Recupere des musique aleatoirement des categories passees en parametre et les renvoie sous forme de listes. Elle constitueront les réponses fausses
+    private Music getOtherRandByCategory(ArrayList<Integer> idsToDodge, ArrayList<Category> categories){
+        Music m;
+        while (true) {
+            m = getOneMusicRandByCategory(categories);
             if ( !idsToDodge.contains(m.getId()) )  return m;
         }
     }
