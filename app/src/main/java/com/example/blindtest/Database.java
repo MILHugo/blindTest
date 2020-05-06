@@ -64,6 +64,104 @@ public class Database {
         values.put("category", "Music");
         sqlDB.insert("MUSIC", null, values);
 
+        values = new ContentValues();
+        values.put("name","TNT");
+        values.put("path extrait","tnt");
+        values.put("categorie","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","emotif");
+        values.put("path extrait","emotif");
+        values.put("categorie","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Wonderwall");
+        values.put("path extrait","wonderwall");
+        values.put("categorie","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","don't stop me now");
+        values.put("path extrait","dontstopmenow");
+        values.put("categorie","Music");
+        sqlDB.insert("MUSIC",null,values);
+
+
+        values = new ContentValues();
+        values.put("name","Bleach opening 1");
+        values.put("path extrait","bleachopening");
+        values.put("categorie","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","cha la head cha la");
+        values.put("path extrait","dbzOpening");
+        values.put("categorie","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Again");
+        values.put("path extrait","fmabOpening");
+        values.put("categorie","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","jojo's opening 1");
+        values.put("path extrait","jojosopening");
+        values.put("categorie","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","My hero academia opening 1");
+        values.put("path extrait","MHAOpening");
+        values.put("categorie","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","naruto opening 1");
+        values.put("path extrait","NarutoOpening");
+        values.put("categorie","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","we go");
+        values.put("path extrait","onepieceOpening");
+        values.put("categorie","Anime");
+        sqlDB.insert("MUSIC",null,values);
+
+
+        values = new ContentValues();
+        values.put("name","retour vers le futur");
+        values.put("path extrait","retourverslefuturtheme");
+        values.put("categorie","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","spider-man");
+        values.put("path extrait","spidermantheme");
+        values.put("categorie","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","star-wars");
+        values.put("path extrait","starwarstheme");
+        values.put("categorie","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","seigneur des anneaux");
+        values.put("path extrait","seigneurdesanneauxtheme");
+        values.put("categorie","Film");
+        sqlDB.insert("MUSIC",null,values);
+
+        values = new ContentValues();
+        values.put("name","Harry Potter");
+        values.put("path extrait","HPtheme");
+        values.put("categorie","Film");
+        sqlDB.insert("MUSIC",null,values);
+
 //        String insert = "INSERT INTO MUSIC(id, name, path_extrait, category) " +
 //                "VALUES (null, 'primary', 'music/extrait/primary.mp3', 'Films');";
 //        this.sqlDB.execSQL(insert);
