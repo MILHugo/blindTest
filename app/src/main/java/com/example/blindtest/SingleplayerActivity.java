@@ -20,6 +20,7 @@ public class SingleplayerActivity extends AppCompatActivity {
     RadioButton rb3;
     RadioButton rb4;
     ArrayList<RadioButton> radioGroup;
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,7 @@ public class SingleplayerActivity extends AppCompatActivity {
         int musicid = getResources().getIdentifier(musics.get(0).getPath_extrait(),"raw", getPackageName());
 
         //prepare la music et attend une sec avant de la jouer
-        final MediaPlayer mp = MediaPlayer.create(this, musicid);
+        mp = MediaPlayer.create(this, musicid);
         TimerTask task = new TimerTask() {
             public void run() {
                 mp.start();
@@ -100,9 +101,15 @@ public class SingleplayerActivity extends AppCompatActivity {
         for (Music m: musics) {
             System.out.println("BDD: " + m);
         }
-
-
-
-
     }
+
+    @Override
+    public void onStop() {
+        if(mp != null && mp.isPlaying()){
+            mp.stop();
+        }
+
+        super.onStop();
+    }
+
 }

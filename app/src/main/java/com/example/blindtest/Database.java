@@ -15,9 +15,9 @@ public class Database {
     private SQLiteDatabase sqlDB;
 
     private ArrayList<Music> musics = null;
-    private ArrayList<Music> songs = null;
-    private ArrayList<Music> animes = null;
-    private ArrayList<Music> movies = null;
+    private ArrayList<Music> songs = new ArrayList<>();
+    private ArrayList<Music> animes = new ArrayList<>();
+    private ArrayList<Music> movies = new ArrayList<>();
 
 
     public Database(Context context){
@@ -66,100 +66,100 @@ public class Database {
 
         values = new ContentValues();
         values.put("name","TNT");
-        values.put("path extrait","tnt");
-        values.put("categorie","Music");
+        values.put("path_extrait","tnt");
+        values.put("category","Music");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","emotif");
-        values.put("path extrait","emotif");
-        values.put("categorie","Music");
+        values.put("path_extrait","emotif");
+        values.put("category","Music");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","Wonderwall");
-        values.put("path extrait","wonderwall");
-        values.put("categorie","Music");
+        values.put("path_extrait","wonderwall");
+        values.put("category","Music");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","don't stop me now");
-        values.put("path extrait","dontstopmenow");
-        values.put("categorie","Music");
+        values.put("path_extrait","dontstopmenow");
+        values.put("category","Music");
         sqlDB.insert("MUSIC",null,values);
 
 
         values = new ContentValues();
         values.put("name","Bleach opening 1");
-        values.put("path extrait","bleachopening");
-        values.put("categorie","Anime");
+        values.put("path_extrait","bleachopening");
+        values.put("category","Anime");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","cha la head cha la");
-        values.put("path extrait","dbzOpening");
-        values.put("categorie","Anime");
+        values.put("path_extrait","dbzopening");
+        values.put("category","Anime");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","Again");
-        values.put("path extrait","fmabOpening");
-        values.put("categorie","Anime");
+        values.put("path_extrait","fmabopening");
+        values.put("category","Anime");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","jojo's opening 1");
-        values.put("path extrait","jojosopening");
-        values.put("categorie","Anime");
+        values.put("path_extrait","jojosopening");
+        values.put("category","Anime");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","My hero academia opening 1");
-        values.put("path extrait","MHAOpening");
-        values.put("categorie","Anime");
+        values.put("path_extrait","mhaopening");
+        values.put("category","Anime");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","naruto opening 1");
-        values.put("path extrait","NarutoOpening");
-        values.put("categorie","Anime");
+        values.put("path_extrait","narutoopening");
+        values.put("category","Anime");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","we go");
-        values.put("path extrait","onepieceOpening");
-        values.put("categorie","Anime");
+        values.put("path_extrait","onepieceopening");
+        values.put("category","Anime");
         sqlDB.insert("MUSIC",null,values);
 
 
         values = new ContentValues();
-        values.put("name","retour vers le futur");
-        values.put("path extrait","retourverslefuturtheme");
-        values.put("categorie","Film");
+        values.put("name","Retour vers le futur");
+        values.put("path_extrait","retourverslefuturtheme");
+        values.put("category","Film");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
-        values.put("name","spider-man");
-        values.put("path extrait","spidermantheme");
-        values.put("categorie","Film");
+        values.put("name","Spider-man");
+        values.put("path_extrait","spidermantheme");
+        values.put("category","Film");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
-        values.put("name","star-wars");
-        values.put("path extrait","starwarstheme");
-        values.put("categorie","Film");
+        values.put("name","Star-wars");
+        values.put("path_extrait","starwarstheme");
+        values.put("category","Film");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
-        values.put("name","seigneur des anneaux");
-        values.put("path extrait","seigneurdesanneauxtheme");
-        values.put("categorie","Film");
+        values.put("name","Seigneur des anneaux");
+        values.put("path_extrait","seigneurdesanneauxtheme");
+        values.put("category","Film");
         sqlDB.insert("MUSIC",null,values);
 
         values = new ContentValues();
         values.put("name","Harry Potter");
-        values.put("path extrait","HPtheme");
-        values.put("categorie","Film");
+        values.put("path_extrait","hptheme");
+        values.put("category","Film");
         sqlDB.insert("MUSIC",null,values);
 
 //        String insert = "INSERT INTO MUSIC(id, name, path_extrait, category) " +
